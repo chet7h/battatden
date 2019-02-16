@@ -11,6 +11,6 @@
   "scripts": {
      "start": "node index.js"
   },
-  "author": "",
+  "author": "chet7h@gmail.com",
   "license": "ISC"
 }
