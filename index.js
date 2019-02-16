@@ -9,7 +9,7 @@ var ip = require('ip');
 var app = express();
 var server = http.Server(app);
 var io = socketio(server);
-app.listen(PORT);
+app.listen(process.env.PORT || PORT);
 console.log("Server nodejs chay tai dia chi: " + ip.address() + ":" + PORT)
 app.use(express.static("webapp"))
 app.get('/', function (req, res) {
