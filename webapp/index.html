@@ -29,7 +29,26 @@
 
   </div>
 </div> 
-  <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js'></script>
-<script src='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-alpha.6/js/bootstrap.min.js'></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-alpha.6/js/bootstrap.min.js"></script>
+<script src="/socket.io/socket.io.js"/></script>
+<script>
+var ledStatus = 1;
+ var chat = io.connect('http://localhost:8558/webapp')
+$(document).ready(function(){
+  $("button").click(function(){
+  ledStatus = (ledStatus++) % 2 === 0 ? 1:2;
+    chat.emit('atime', ledStatus);
+  });
+  chat.on('atime1', function (packet) {
+    if(packet === 2){
+		$("button").addClass("active");
+	}else{
+		$("button").removeClass("active");
+	}
+  });
+});
+
+</script>
 </body>
 </html>

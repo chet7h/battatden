@@ -1,15 +1,17 @@
 {
   "name": "ledturn",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "bat tat den",
   "main": "index.js",
   "dependencies": {
     "express": "*",
-    "socket.io": "*",
-	"ip": "*"
+    "ip": "*",
+    "socket.io": "^2.2.0",
+    "socket.io-client": "^2.2.0",
+    "socketio-wildcard": "*"
   },
   "scripts": {
-     "start": "node index.js"
+    "start": "node index.js"
   },
   "author": "chet7h@gmail.com",
   "license": "ISC"

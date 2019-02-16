@@ -1,4 +1,4 @@
-const PORT = 80;									//Đặt địa chỉ Port được mở ra để tạo ra chương trình mạng Socket Server
+const PORT = 8558;
  
 var http = require('http');
 var socketio = require('socket.io');
@@ -9,21 +9,30 @@ var ip = require('ip');
 var app = express();
 var server = http.Server(app);
 var io = socketio(server);
-app.listen(process.env.PORT || PORT);
-console.log("Server nodejs chay tai dia chi: " + ip.address() + ":" + PORT)
+
+var webapp_nsp = io.of('/webapp')
+var middleware = require('socketio-wildcard')();//Để có thể bắt toàn bộ lệnh!
+webapp_nsp.use(middleware);
+
+//server.listen(process.env.PORT || PORT);//cho heroku
+server.listen(PORT);// cho local
+
+console.log("Server IP: " + ip.address() + ":" + PORT)
 app.use(express.static("webapp"))
+app.use(express.static("node_modules/socket.io-client"))
 app.get('/', function (req, res) {
   res.send('hello world')
 })
+
 //Khi có mệt kết nối được tạo giữa Socket Client và Socket Server
-io.on('connection', function(socket) {	
+webapp_nsp.on('connection', function(socket) {
 	//hàm console.log giống như hàm Serial.println trên Arduino
-    console.log("Connected"); //In ra màn hình console là đã có một Socket Client kết nối thành công.
+    console.log("da ket noi");
 	socket.on("atime", function(packet) {
-		console.log("esp8266 rev and send to webapp packet: ", packet.message) //in ra để debug
+		console.log("webapp gui data: ", packet);
+		webapp_nsp.emit('atime1', packet);
 	})
-	//Khi socket client bị mất kết nối thì chạy hàm sau.
 	socket.on('disconnect', function() {
-		console.log("disconnect") 	//in ra màn hình console cho vui
+		console.log("disconnect")
 	})
 });
