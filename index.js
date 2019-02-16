@@ -14,8 +14,8 @@ var webapp_nsp = io.of('/webapp')
 var middleware = require('socketio-wildcard')();//Để có thể bắt toàn bộ lệnh!
 webapp_nsp.use(middleware);
 
-//server.listen(process.env.PORT || PORT);//cho heroku
-server.listen(PORT);// cho local
+server.listen(process.env.PORT || PORT);//cho heroku
+//server.listen(PORT);// cho local
 
 console.log("Server IP: " + ip.address() + ":" + PORT)
 app.use(express.static("webapp"))
