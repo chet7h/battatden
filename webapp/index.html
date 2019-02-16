@@ -34,7 +34,7 @@
 <script src="/socket.io/socket.io.js"/></script>
 <script>
 var ledStatus = 1;
- var chat = io.connect('/webapp')
+ var chat = io.connect();
 $(document).ready(function(){
   $("button").click(function(){
   ledStatus = (ledStatus++) % 2 === 0 ? 1:2;
