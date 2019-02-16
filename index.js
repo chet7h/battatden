@@ -12,9 +12,9 @@ var io = socketio(server);
 app.listen(PORT);
 console.log("Server nodejs chay tai dia chi: " + ip.address() + ":" + PORT)
 app.use(express.static("webapp"))
-/*app.get('/', function (req, res) {
+app.get('/', function (req, res) {
   res.send('hello world')
-})*/
+})
 //Khi có mệt kết nối được tạo giữa Socket Client và Socket Server
 io.on('connection', function(socket) {	
 	//hàm console.log giống như hàm Serial.println trên Arduino
