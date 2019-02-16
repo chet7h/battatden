@@ -1,0 +1,18 @@
+{
+  "name": "ledturn",
+  "version": "1.0.0",
+  "description": "bat tat den",
+  "main": "index.js",
+  "dependencies": {
+    "express": "*",
+    "socket.io": "*"
+  },
+  "devDependencies": {
+    "ip": "*"
+  },
+  "scripts": {
+    "test": "npm"
+  },
+  "author": "",
+  "license": "ISC"
+}
