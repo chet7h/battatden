@@ -11,7 +11,7 @@
     "ip": "*"
   },
   "scripts": {
-    "test": "npm"
+     "start": "node index.js"
   },
   "author": "",
   "license": "ISC"
