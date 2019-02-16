@@ -19,7 +19,6 @@ server.listen(process.env.PORT || PORT);//cho heroku
 
 console.log("Server IP: " + ip.address() + ":" + PORT)
 app.use(express.static("webapp"))
-app.use(express.static("node_modules/socket.io-client"))
 app.get('/', function (req, res) {
   res.send('hello world')
 })
