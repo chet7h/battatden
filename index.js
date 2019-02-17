@@ -35,6 +35,6 @@ io.on('connection', function(socket) {
 	}, 10000)
 	socket.on('disconnect', function() {
 		console.log("webapp da ngat ket noi")
-		clearInterval(interval1)
+		clearInterval(interval)
 	})
 });
