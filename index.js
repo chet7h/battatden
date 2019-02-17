@@ -29,7 +29,12 @@ io.on('connection', function(socket) {
 		console.log("webapp gui data: ", packet);
 		io.emit('atime1', packet);
 	})
+	var interval = setInterval(function() {
+		socket.emit("LED", "1");
+		console.log("send LED");
+	}, 10000)
 	socket.on('disconnect', function() {
 		console.log("webapp da ngat ket noi")
+		clearInterval(interval1)
 	})
 });
