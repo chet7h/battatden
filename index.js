@@ -29,6 +29,9 @@ io.on('connection', function(socket) {
 		console.log("webapp gui data: ", packet);
 		io.emit('atime1', packet);
 	})
+	socket.on("hellomesage", function(packet) {
+		console.log("webapp gui data: ", packet.message);
+	})
 	var interval = setInterval(function() {
 		socket.emit("LED", "1");
 		console.log("send LED");
