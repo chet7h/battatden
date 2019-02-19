@@ -9,6 +9,7 @@ var ip = require('ip');
 var app = express();
 var server = http.Server(app);
 var io = socketio(server);
+var ledSts = 1;
 
 //var webapp_nsp = io.of('/webapp');
 //var esp8266_nsp = io.of('/esp8266');
@@ -24,10 +25,12 @@ app.use(express.static("webapp"))
 //Khi có mệt kết nối được tạo giữa Socket Client và Socket Server
 io.on('connection', function(socket) {
 	//hàm console.log giống như hàm Serial.println trên Arduino
-    console.log("webapp da ket noi ", socket);
+    console.log("webapp da ket noi ");
+	io.emit('atime1', ledSts);
 	socket.on("atime", function(packet) {
 		console.log("webapp gui data: ", packet);
 		io.emit('atime1', packet);
+		ledSts = packet;
 	})
 	socket.on("ping", function(packet) {
 		console.log("ping data: ", packet);
