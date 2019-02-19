@@ -33,10 +33,10 @@ io.on('connection', function(socket) {
 		console.log("webapp gui data: ", packet);
 		socket.emit("pong", "1");
 	})
-	var interval = setInterval(function() {
+	/*var interval = setInterval(function() {
 		socket.emit("LED", "1");
 		console.log("send LED");
-	}, 10000)
+	}, 10000)*/
 	socket.on('disconnect', function() {
 		console.log("webapp da ngat ket noi")
 		clearInterval(interval)
