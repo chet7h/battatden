@@ -37,12 +37,12 @@ io.on('connection', function(socket) {
 	socket.on("messageType", function(packet) {
 		console.log("messageType data: ", packet);
 	})
-	/*var interval = setInterval(function() {
+	var interval = setInterval(function() {
 		socket.emit("LED", "1");
 		console.log("send LED");
-	}, 10000)*/
+	}, 10000)
 	socket.on('disconnect', function() {
 		console.log("webapp da ngat ket noi")
-		//clearInterval(interval)
+		clearInterval(interval)
 	})
 });
