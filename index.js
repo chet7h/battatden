@@ -36,6 +36,9 @@ io.on('connection', function(socket) {
 		console.log("ping data: ", packet);
 		socket.emit("pong", "1");
 	})
+	socket.on("messageType", function(packet) {
+		console.log("messageType data: ", packet);
+	})
 	/*var interval = setInterval(function() {
 		socket.emit("LED", "1");
 		console.log("send LED");
