@@ -38,7 +38,7 @@ io.on('connection', function(socket) {
 		console.log("messageType data: ", packet);
 	})
 	var interval = setInterval(function() {
-		socket.emit("LED", "1");
+		io.emit("LED");
 		console.log("send LED");
 	}, 10000)
 	socket.on('disconnect', function() {
