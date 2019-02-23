@@ -42,8 +42,10 @@ $(document).ready(function(){
   });
   chat.on('atime1', function (packet) {
     if(packet === 2){
+		ledStatus=2;
 		$("button").addClass("active");
 	}else{
+		ledStatus=1;
 		$("button").removeClass("active");
 	}
   });
