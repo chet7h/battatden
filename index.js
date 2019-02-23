@@ -28,19 +28,7 @@ io.on('connection', function(socket) {
 	socket.on("atime", function(packet) {
 		console.log("webapp gui data: ", packet);
 		io.emit('atime1', packet);
-		io.emit('pong');
 	})
-	socket.on("ping", function(packet) {
-		console.log("ping data: ", packet);
-		socket.emit("pong", "1");
-	})
-	socket.on("messageType", function(packet) {
-		console.log("messageType data: ", packet);
-	})
-	var interval = setInterval(function() {
-		socket.emit("LED");
-		console.log("send LED");
-	}, 10000)
 	socket.on('disconnect', function() {
 		console.log("webapp da ngat ket noi")
 		clearInterval(interval)
