@@ -29,6 +29,12 @@ io.on('connection', function(socket) {
 		console.log("webapp gui data: ", packet);
 		io.emit('atime1', packet);
 	})
+	var interval1 = setInterval(function() {
+		var date = new Date();
+		var hour = date.getHours();
+		var min  = date.getMinutes();
+		
+	}, 50000)//200ms
 	socket.on('disconnect', function() {
 		console.log("webapp da ngat ket noi")
 	})
